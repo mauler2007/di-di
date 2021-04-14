@@ -1,0 +1,331 @@
+.select-form {
+
+  &__items {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    @include breakpoint($tablet-bp) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    margin-right: 30px;
+    min-width: 270px;
+
+    @include breakpoint($xxl-bp) {
+      min-width: 160px;
+    }
+
+    @include breakpoint($tablet-bp) {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    &:first-child {
+      min-width: 160px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--from-to {
+      min-width: 200px;
+      margin-right: 2px;
+      margin-left: auto;
+
+      @include breakpoint($desktop-bp) {
+        min-width: 125px;
+        margin-left: auto;
+      }
+
+      @include breakpoint($tablet-bp) {
+        min-width: 100%;
+        text-align: center;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+
+
+    &.select-form__item--from-to {
+
+      &:first-child {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__label {
+    margin-bottom: 5px;
+
+    input {
+      max-width: 100px;
+      min-height: 50px;
+      padding: 8px 10px;
+      // margin-left: 10px;
+      text-align: center;
+
+      font-size: 14px;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 500;
+      color: $accent;
+
+      border: 1px solid $light;
+      background: $white;
+      border-radius: 0;
+      transition: background-color 0.3s linear;
+
+      @include breakpoint($desktop-bp) {
+        max-width: 60px;
+      }
+
+      &::placeholder {
+        color: $text;
+      }
+
+      &:hover {
+        background-color: lighten($color: $accent, $amount: 47%)
+      }
+
+      &:focus {
+        outline-color: $accent;
+      }
+
+      &:active {
+        outline-color: $accent;
+      }
+    }
+  }
+
+  &__type {
+    display: block;
+    margin-bottom: 5px;
+
+    &--down-arrow {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 8px;
+        max-width: 10px;
+        height: 6px;
+        top: 50%;
+
+        transform: translateY(-50%);
+        background-image: url('../../images/icons/drop.svg');
+      }
+    }
+  }
+
+  &__select {
+    width: 100%;
+
+    &.opened {
+
+      .jq-selectbox__trigger::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+
+        transform: translateY(-50%) rotate(180deg);
+        background-image: url('../../images/icons/drop.svg');
+      }
+    }
+  }
+
+  &__input {
+    min-width: 200px;
+
+    @include breakpoint($xxl-bp) {
+      min-width: 160px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include breakpoint($tablet-bp) {
+      justify-content: center
+    }
+
+    @include breakpoint($middle-bp) {
+      flex-direction: column;
+    }
+  }
+
+  &__checkboxes {
+    margin-right: auto;
+
+    @include breakpoint($tablet-bp) {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+
+    .select-form__label:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__more {
+    padding: 19px 29px 19px 19px;
+
+    @extend %ubuntu-500;
+    font-size: 14px;
+    background-color: $white;
+    border: none;
+
+    transition: color 0.3s linear;
+
+    @include breakpoint($tablet-bp) {
+      margin-bottom: 10px;
+    }
+
+    &:hover {
+      color: lighten($color: $accent, $amount: 7%)
+    }
+
+    &:focus {
+      outline-color: $accent;
+    }
+
+    &:active {
+      outline-color: $accent;
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+    min-width: 200px;
+    padding: 19px;
+    margin-left: 20px;
+    text-align: center;
+
+    @extend %ubuntu-500;
+    font-size: 12px;
+    color: $text;
+    text-transform: uppercase;
+
+    background-color: $white;
+    border-radius: 5px;
+    border: 1px solid $text;
+    cursor: pointer;
+
+    transition: color 0.3s linear,
+      background-color 0.3s linear,
+      border-color 0.3s linear,
+    ;
+
+    @include breakpoint($tablet-bp) {
+      margin: 0 0 10px 10px;
+    }
+
+    @include breakpoint($middle-bp) {
+      margin: 0 0 10px 0;
+    }
+
+    &:hover {
+      color: $white;
+      background-color: #FF000D;
+      border-color: #FF000D;
+    }
+  }
+
+  .jq-selectbox__select {
+    height: 50px;
+    padding: 11px 45px 11px 17px;
+
+    font: 14px/32px Ubuntu, sans-serif;
+    font-weight: 500;
+    color: $text;
+    text-shadow: 0 0 $white;
+
+    background: $white;
+    border: 1px solid $light;
+    border-bottom-color: $light;
+    border-radius: 5px;
+    box-shadow: none;
+
+    &:hover {
+      background-color: lighten($color: $accent, $amount: 47%)
+    }
+
+    &:focus {
+      outline-color: $accent;
+    }
+
+    &:active {
+      outline-color: $accent;
+    }
+
+  }
+
+  .jq-selectbox__trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 34px;
+    height: 100%;
+
+    border-left: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 10px;
+      height: 6px;
+      transform: translateY(-50%);
+
+      background-image: url('../../images/icons/drop.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      ;
+    }
+  }
+
+  .jq-selectbox__trigger-arrow {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    width: 10px;
+    height: 5px;
+
+    border-top: none;
+    border-right: none;
+    border-left: none transparent;
+  }
+
+  .jq-checkbox.checked .jq-checkbox__div {
+    width: 8px;
+    height: 4px;
+    margin: 3px 0 0 3px;
+
+    border-bottom: 2px solid $accent;
+    border-left: 2px solid $accent;
+    transform: rotate(-50deg);
+  }
+
+  .jq-checkbox,
+  .jq-radio {
+    vertical-align: -4px;
+    width: 16px;
+    height: 16px;
+    margin: 0 4px 0 0;
+    
+    border: 1px solid $light;
+    background: $white;
+    box-shadow: none;
+    cursor: pointer;
+  }
+}

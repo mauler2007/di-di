@@ -1,0 +1,161 @@
+.grid {
+  padding: 40px 0;
+
+  background-color: $light;
+
+  .container.container--fluid {
+
+     @include breakpoint($mobile-bp) {
+      padding: 0;
+     }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 715px 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    height: 655px;
+    grid-gap: 30px;
+    grid-template-areas: 'a b b'
+      'a c d';
+
+    @include breakpoint($xxl-bp) {
+      grid-template-columns: 515px 1fr 1fr;
+      grid-gap: 10px;
+      height: auto;
+    }
+
+    @include breakpoint($desktop-bp) {
+      grid-template-columns: repeat(auto-fit, minmax(379px, 1fr));
+      grid-template-rows: repeat(2, 200px);
+      grid-template-areas: 'a b'
+        'c d';
+      grid-gap: 10px;
+    }
+
+    @include breakpoint($middle-bp) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-rows: repeat(4, 200px);
+      grid-template-areas: 'a'
+        'b'
+        'c'
+        'd';
+    }
+  }
+
+  &__body {
+    padding: 20px;
+  }
+
+  &__article {
+    position: relative;
+
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    // background: transparent;
+    transition: background 0.3s linear,
+      background-blend-mode 0.3s linear;
+
+
+
+    @include breakpoint($desktop-bp) {
+      // background: none;
+      background-position: center;
+    }
+
+    &--column-count {
+
+      .grid__list {
+        column-count: 2;
+        column-gap: 40px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+
+      background: radial-gradient(42.82% 211.01% at 29.11% 38.17%, #00E1D4 0%, #00095F 100%);
+      opacity: 0.3
+    }
+
+    &:nth-child(1) {
+      grid-area: a;
+    }
+
+    &:nth-child(2) {
+      grid-area: b;
+    }
+
+    &:nth-child(3) {
+      grid-area: c;
+    }
+
+    &:nth-child(4) {
+      grid-area: d;
+    }
+
+    &:hover {
+      background: red;
+      background-blend-mode: darken;
+
+      .grid__link::before {
+        background-image: url('../../images/arrow-white.svg');
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    max-width: 200px;
+    margin-bottom: 55px;
+
+    color: $white;
+
+    @include breakpoint($desktop-bp) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__list-item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    padding-right: 20px;
+
+    color: $white;
+    font-size: 18px;
+
+    @include breakpoint($tablet-bp) {
+      font-size: 12px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 9px;
+
+      background-image: url('../../images/icons/arrow-red.svg');
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $text;
+    }
+  }
+}

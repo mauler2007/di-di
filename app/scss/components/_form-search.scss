@@ -1,0 +1,85 @@
+.form-search {
+  position: relative;
+
+    @include breakpoint($tablet-bp) {
+      display: none;
+    }
+
+  &:hover {
+
+    .form-search__input {
+      max-width: 140px;
+      opacity: 1;
+    }
+
+    .form-search__btn {
+      background-color:$white;
+    }
+
+    .form-search__svg {
+
+      path {
+        fill: $text;
+      }
+    }
+  }
+
+  &__input {
+    display: inline-block;
+    max-width: 140px;
+    height: 20px;
+    padding: 0 30px 0 10px;
+    max-width: 0px;
+
+    border-radius: 9px;
+    border: none;
+    box-shadow: none;
+    color: $black;
+    cursor: pointer;
+    opacity: 0;
+
+    transition: max-width 0.3s linear,
+      opacity 0.3s linear;
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    // top: -1px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    background-color: $text;
+    font-size: 0;
+    color: transparent;
+    box-shadow: none;
+    border-radius: none;
+    border-radius: 9px;
+
+    border: none;
+    cursor: pointer;
+
+    transition:background-color 0.3s linear;
+
+    &:hover {
+
+      path {
+        fill: $text;
+      }
+    }
+
+  }
+
+  &__svg {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+
+    path {
+      fill: $white;
+
+      transition: fill 0.3s linear;
+    }
+  }
+}

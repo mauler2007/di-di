@@ -1,0 +1,111 @@
+ .map {
+   padding: 80px 0 30px;
+   background-color: $light;
+
+   &__inner {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+     @include breakpoint($middle-bp) {
+       display: block;
+     }
+   }
+
+   &__info {
+     max-width: 675px;
+
+     @include breakpoint($xxl-bp) {
+       max-width: 47%;
+     }
+
+     @include breakpoint($middle-bp) {
+       max-width: 100%;
+     }
+   }
+
+   &__logo {
+     margin-bottom: 40px;
+   }
+
+   &__title {
+     margin-bottom: 40px;
+
+     @extend %ubuntu-500;
+     font-size: 25px;
+     line-height: 1.4;
+     letter-spacing: -0.025em;
+
+     @include breakpoint($desktop-bp) {
+       font-size: 20px;
+     }
+
+     @include breakpoint($tablet-bp) {
+       font-size: 16px;
+     }
+   }
+
+   &__text {
+     margin-bottom: 30px;
+
+     @extend %ubuntu-300;
+     line-height: 1.4;
+   }
+
+   &__about {
+     display: inline-block;
+     max-width: 230px;
+     padding: 19px 60px;
+     text-align: center;
+
+     @extend %ubuntu-500;
+     color: $white;
+     text-transform: uppercase;
+
+     background-color: $accent;
+     border: 1px solid transparent;
+     border-radius: 5px;
+
+     transition: color 0.3s linear,
+       background-color 0.3s linear, border-color 0.3s linear;
+
+     &:hover {
+       color: $accent;
+       background-color: $light;
+       border-color: $accent;
+     }
+
+     &:focus {
+       color: $text
+     }
+
+     &:active {
+       outline-color: $accent;
+     }
+   }
+
+   &__image {
+     max-width: 47%;
+
+     @include breakpoint($tablet-bp) {
+       margin-top: 30px;
+       align-self: flex-start;
+     }
+
+     @include breakpoint($middle-bp) {
+       max-width: 100%;
+     }
+   }
+
+   &__img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
+
+   &__svg {
+     margin-bottom: 20px;
+     width: 165px;
+     height: 60px;
+   }
+ }

@@ -1,0 +1,98 @@
+.partners {
+  padding: 50px 0;
+  background-color: $light;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+
+  &__inner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    position: relative;
+
+    background-color: $light;
+  }
+
+  &__img {
+    height: 90px;
+    mix-blend-mode: multiply;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  &__svg-arrow {
+    width: 14px;
+    height: 30px;
+
+    use {
+      fill: none;
+      stroke: $text;
+      stroke-width: 3;
+      transition: stroke 0.3s linear;
+    }
+  }
+
+  .slick-arrow {
+    position: absolute;
+
+    z-index: 5;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+
+    cursor: pointer;
+    border-color: transparent;
+
+    &:hover {
+
+      use {
+        stroke: $accent;
+      }
+    }
+
+    &.slick-disabled {
+      cursor: unset;
+      outline-color: $light;
+
+      use {
+        stroke: $text;
+      }
+
+      &:hover {
+        use {
+          stroke: $text;
+        }
+      }
+    }
+  }
+
+  .arrow-next {
+    right: -22px;
+   // transform: translateX(-50%);
+  }
+
+  .arrow-prev {
+    left: -8px;
+  }
+
+  // .slick-arrow {
+  //   display: none;
+  // }
+
+  //  .arrow-prev {
+  //    left: 0px;
+  //  }
+
+  // .arrow-next {
+  //   right: 0px;
+  //   // transform: translateX(-50%);
+  // }
+}

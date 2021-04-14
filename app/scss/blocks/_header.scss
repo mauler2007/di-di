@@ -1,0 +1,368 @@
+.header {
+
+  background-color: $white;
+
+  &.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+  }
+
+  &__hamburger {
+    display: none;
+
+    @include breakpoint($tablet-bp) {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      padding: 0;
+
+      background-color: transparent;
+      border: none;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 26px;
+        height: 3px;
+        left: 0;
+
+        background-color: $accent;
+      }
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+
+
+    }
+
+    span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background-color: $accent;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+    padding-bottom: 16px;
+
+    background-color: $white;
+
+    @include breakpoint($tablet-bp) {
+      padding: 13px 0;
+    }
+  }
+
+  &__location {
+    display: flex;
+    align-items: baseline;
+
+    @include breakpoint($mobile-bp) {
+      display: none;
+    }
+  }
+
+  &__city {
+    @extend %ubuntu-500;
+    background-color: $white;
+
+    @include breakpoint($tablet-bp) {
+      font-size: 12px;
+    }
+  }
+
+  &__drop {
+    width: 11px;
+    height: 7px;
+  }
+
+  &__right {
+    min-width: 360px;
+    display: flex;
+    justify-content: flex-end;
+
+    @include breakpoint($tablet-bp) {
+      min-width: auto;
+    }
+  }
+
+  &__phone {
+    text-align: right;
+
+    @include breakpoint($tablet-bp) {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @include breakpoint($tablet-bp) {
+        display: block;
+      }
+
+      @include breakpoint($middle-bp) {
+        display: none;
+      }
+    }
+  }
+
+  &__number {
+    display: block;
+    margin-bottom: 6px;
+
+    font-size: 22px;
+    color: $text;
+    @extend %ubuntu-700;
+
+    @include breakpoint($tablet-bp) {
+      font-size: 12px;
+    }
+  }
+
+
+  &__call {
+    display: inline-block;
+
+    @extend %ubuntu-300;
+    font-size: 13px;
+    line-height: 1.2;
+    color: $grey;
+    text-decoration: underline;
+
+    transition: color 0.3s linear,
+      text-shadow 0.3s linear;
+
+    &:hover {
+      color: darken($accent, 15%);
+    }
+
+    &:focus {
+      text-shadow: 0 0 1px $accent;
+    }
+
+    &:active {
+      color: $black;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint($tablet-bp) {
+      margin-right: 20px;
+    }
+  }
+
+  &__action {
+    margin-left: 22px;
+
+    &:last-child {
+      margin-left: 0;
+
+      @include breakpoint($tablet-bp) {
+        margin-left: 22px;
+      }
+    }
+
+    .form-search__btn {
+      display: none;
+
+      @include breakpoint($tablet-bp) {
+        position: static;
+        display: inline-block;
+        background-color: $white;
+
+        use {
+          fill: $text;
+        }
+      }
+    }
+
+  }
+
+  &__icon {
+    color: $text;
+    transition: color 0.3s linear;
+
+    &:hover {
+
+      .header__svg {
+
+        use {
+          fill: darken($accent, 15%);
+        }
+      }
+
+      .header__num {
+        color: darken($accent, 15%);
+      }
+    }
+
+    &:focus {
+
+      .header__svg {
+
+        use {
+          fill: darken($accent, 15%);
+        }
+      }
+
+      .header__num {
+        color: darken($accent, 15%);
+        text-shadow: 0 0 1px $accent;
+      }
+    }
+
+    &:active {
+
+      .header__svg {
+
+        use {
+          fill: darken($accent, 15%);
+        }
+      }
+
+      .header__num {
+        color: $black;
+      }
+    }
+  }
+
+  &__svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 19px;
+    height: 16px;
+
+    use {
+      fill: $text;
+
+      transition: fill 0.3s linear;
+    }
+  }
+
+  &__nav {
+    background-color: $text;
+
+    @include breakpoint($tablet-bp) {
+      display: none;
+    }
+
+    &--visible {
+      display: block;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint($middle-bp) {
+      display: block;
+    }
+  }
+
+  &__item {
+
+    &:last-child {
+      min-width: 140px;
+
+      @include breakpoint($tablet-bp) {
+        min-width: 0px;
+      }
+    }
+  }
+
+  &__item-link {
+    display: inline-block;
+    padding-top: 15px;
+    padding-bottom: 19px;
+
+    font-size: 15px;
+    @extend %ubuntu-400;
+    color: $white;
+
+    transition: color 0.3s linear,
+      text-shadow 0.3s linear;
+
+    &:hover {
+      color: darken($accent, 15%);
+    }
+
+    &:focus {
+      text-shadow: 0 0 1px $accent;
+    }
+
+    &:active {
+      color: $accent;
+    }
+  }
+
+  .jq-selectbox__select {
+    height: 20px;
+    padding: 0 45px 0 10px;
+
+    border: 1px solid transparent;
+    border-bottom-color: transparent;
+    border-radius: none;
+    background: $white;
+    box-shadow: none;
+    font: 14px/16px Arial, sans-serif;
+    color: $text;
+    text-shadow: 1px 1px #fff;
+
+    @include breakpoint($tablet-bp) {
+      font: 14px/16px Ubuntu, sans-serif;
+      font-size: 12px;
+    }
+  }
+
+  .jq-selectbox__trigger {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    width: 10px;
+    height: 100%;
+    border-left: none;
+    background-image: url('../../images/drop.png');
+    background-repeat: no-repeat;
+  }
+
+  .jq-selectbox__trigger-arrow {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 10px;
+    height: 6px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
+
+  .jq-selectbox__select-text {
+    @extend %ubuntu-300;
+
+    @include breakpoint($tablet-bp) {
+      font-size: 12px;
+    }
+  }
+}

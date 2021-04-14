@@ -1,0 +1,174 @@
+.building {
+  max-width: 315px;
+
+  @include breakpoint($desktop-bp) {
+    max-width: 300px;
+  }
+
+  @include breakpoint($tablet-bp) {
+    max-width: 221px;
+  }
+
+  @include breakpoint($middle-bp) {
+    max-width: 100%;
+  }
+
+  &__gallery {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+
+      .building__dots {
+        top: 200px;
+        opacity: 1;
+
+        &:first-child {
+          background-color: $accent;
+        }
+      }
+    }
+  }
+
+  &__image {
+    max-width: 315px;
+    min-height: 226px;
+
+    @include breakpoint($tablet-bp) {
+      max-width: 100%;
+    }
+  }
+
+  &__img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 226px;
+  }
+
+  &__dots {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 150px;
+    width: 60px;
+    height: 10px;
+    opacity: 0;
+    z-index: 10;
+    transform: translate(-50%);
+
+    transition: opacity 0.3s linear,
+      top 0.3s linear;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    background-color: $white;
+    border-radius: 50%;
+    margin: 0 3px;
+
+    &:first-child {
+      background-color: $accent;
+    }
+  }
+
+  &__bottom {
+    padding: 32px 20px 20px;
+    text-align: left;
+
+    background-color: $white;
+  }
+
+  &__type {
+    margin-bottom: 10px;
+
+    @extend %ubuntu-500;
+    font-size: 16px;
+  }
+
+  &__info {
+    margin-bottom: 10px;
+
+    @extend %ubuntu-400;
+    color: lighten($color: $grey, $amount: 10%);
+
+    font-size: 13px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__price {
+    margin-bottom: 5px;
+
+    @extend %ubuntu-500;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  &__footer {
+    padding: 22px 0;
+  }
+
+  &__link,
+  &__button {
+
+    span {
+      transition: color 0.3s linear;
+    }
+
+    &:hover {
+
+      use {
+        fill: darken($accent, 15%);
+      }
+
+      span {
+        color: $accent;
+      }
+    }
+
+    &:focus {
+      outline-color: darken($accent, 15%);
+    }
+
+    &:active {
+
+      use {
+        fill: $text;
+      }
+    }
+  }
+
+  &__link {
+    margin-right: 15px;
+  }
+
+  &__button {
+    padding: 0;
+    background-color: $white;
+    border-color: transparent;
+    cursor: pointer;
+
+    &.building__button--active {
+
+      use {
+        fill: $accent;
+      }
+    }
+  }
+
+  &__svg {
+    width: 20px;
+    height: 11px;
+
+    use {
+      fill: $text;
+
+      transition: fill 0.3s linear;
+    }
+  }
+}

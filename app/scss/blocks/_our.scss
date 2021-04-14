@@ -1,0 +1,131 @@
+.our {
+  background-color: $light;
+
+  .container.container--fluid {
+    padding: 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: $white;
+    background-color: $accent;
+
+    @include breakpoint($middle-bp) {
+      display: block;
+      background-color: $accent;
+    }
+  }
+
+  &__left {
+    padding: 0 104px 0 15%;
+    max-width: 1200px;
+
+    @include breakpoint($xxl-bp) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    @include breakpoint($middle-bp) {
+      padding: 30px 20px 20px;
+    }
+  }
+
+  &__right {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    max-width: 699px;
+    min-width: 384px;
+    width: 100%;
+    min-height: 551px;
+    padding-bottom: 150px;
+    padding-left: 75px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint($xxl-bp) {
+      padding: 0 15px;
+    }
+
+    @include breakpoint($middle-bp) {
+      min-height: 160px;
+      max-width: 100%;
+    }
+
+    @include breakpoint($mobile-bp) {
+      min-width: 100%;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      min-height: 100%;
+
+      opacity: 0.4;
+    }
+
+    &::before {
+      z-index: 2;
+
+      background: radial-gradient(70.39% 456.08% at 0% 0%, #1C5F5B 0%, #00063C 100%);
+    }
+
+    &::after {
+      z-index: 1;
+
+      background: $text;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @extend %ubuntu-700;
+    font-size: 55px;
+    line-height: 1;
+
+    @include breakpoint($xxl-bp) {
+      font-size: 40px;
+    }
+
+    @include breakpoint($desktop-bp) {
+      font-size: 30px;
+    }
+
+    @include breakpoint($tablet-bp) {
+      font-size: 25px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    align-self: flex-end;
+
+    @extend %ubuntu-500;
+    font-size: 16px;
+    line-height: 1.8;
+
+    &--right {
+      max-width: 306px;
+
+      @include breakpoint($xxl-bp) {
+        align-self: center;
+        max-width: 100%;
+      }
+
+      @include breakpoint($tablet-bp) {
+        font-size: 14px;
+      }
+    }
+  }
+}

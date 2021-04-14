@@ -1,0 +1,10 @@
+.logo {
+  max-width: 212px;
+  max-height: 78px;
+
+  &__img {
+    display: block;
+    object-fit: cover;
+  }
+
+}

@@ -1,0 +1,151 @@
+.new {
+  padding-top: 47px;
+  background-color: $light;
+
+  &__title {
+    display: inline-block;
+    margin-bottom: 40px;
+
+    @include breakpoint($mobile-bp) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__total {
+    display: inline-block;
+    margin-left: 10px;
+
+    @extend %ubuntu-300;
+    font-size: 16px;
+    line-height: 1.75;
+    color: $text;
+
+     @include breakpoint($mobile-bp) {
+       display: block;
+       margin-bottom: 10px;
+     }
+
+    &:hover {
+      color: darken($accent, 15%);
+    }
+
+    &:focus {
+      text-shadow: 0 0 1px $accent;
+    }
+
+    &:active {
+      color: $black;
+    }
+  }
+
+  &__top {
+    margin-bottom: 50px;
+
+     @include breakpoint($mobile-bp) {
+       margin-bottom: 30px;
+     }
+  }
+
+  &__btn {
+    padding: 10px 14px 8px;
+    margin-right: 6px;
+
+    @extend %btn;
+    color: lighten($color: $grey, $amount: 10%);
+    background-color: $light;
+
+    transition: color 0.3s linear,
+      background-color 0.3s linear;
+
+         @include breakpoint($middle-bp) {
+          margin-bottom: 10px;
+         }
+
+    &:hover {
+      background-color: lighten($color: $accent, $amount: 47%)
+    }
+
+    &:focus {
+      outline-color: $accent;
+    }
+
+    &:active {
+      outline-color: $accent;
+    }
+
+    &--active {
+      color: $white;
+
+      background-color: $accent;
+
+      &:hover {
+        background-color: $accent;
+      }
+    }
+  }
+
+  &__svg-arrow {
+    width: 14px;
+    height: 30px;
+
+    use {
+      fill: none;
+      stroke: $text;
+      stroke-width: 3;
+      transition: stroke 0.3s linear;
+    }
+  }
+
+  .slick-arrow {
+    position: absolute;
+    z-index: 5;
+    top: -93px;
+    padding: 0;
+
+    cursor: pointer;
+    border-color: transparent;
+
+     @include breakpoint($middle-bp) {
+
+      top: 70%;
+      background-color: $white;
+     }
+
+    &:hover {
+
+      use {
+        stroke: $accent;
+      }
+    }
+
+    &.slick-disabled {
+      cursor: unset;
+      outline-color: $light;
+
+      use {
+        stroke: $text;
+      }
+
+      &:hover {
+        use {
+          stroke: $text;
+        }
+      }
+    }
+  }
+
+  .arrow-next {
+    right: 5%;
+  }
+
+  .arrow-prev {
+    right: 150px;
+      @include breakpoint($middle-bp) {
+        left: 5%;
+      }
+  }
+
+  .slick-slide.slick-active div {
+    text-align: center;
+  }
+}

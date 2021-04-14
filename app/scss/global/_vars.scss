@@ -1,0 +1,62 @@
+$white: #fff;
+$text:#0D0D0D;
+$accent:#FF000D;
+$grey: #5b5b5b;
+$black: #000;
+$light: #eeeeee;
+
+$xxl-bp: 1350px;
+$desktop-bp: 1200px;
+$tablet-bp: 992px;
+$middle-bp: 768px;
+$mobile-bp: 540px;
+
+
+%ubuntu-300 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+}
+%ubuntu-400 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+}
+%ubuntu-500 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+}
+%ubuntu-700 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+
+%btn {
+  color: $text;
+
+  background-color: $light;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+%hover-bg {
+  background: rgb(163, 187, 200);
+  background: linear-gradient(90deg, rgba(163, 187, 200, 1) 0%, rgba(252, 215, 182, 1) 100%);
+}
+
+%visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}
